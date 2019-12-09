@@ -7,7 +7,7 @@
   * @brief   Default main function.
   ******************************************************************************
 */
-#include "stm32f4xx.h"
+#include "../contrib/CMSIS/device/stm32f4xx.h"
 #include <cstdint>
 
 static void HWSetup(void)  {
