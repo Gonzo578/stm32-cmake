@@ -13,8 +13,8 @@ SET(PROJECT_SOURCES
 
 include_directories(${CMAKE_PROJECT_NAME}
 	inc
-	CMSIS/core
-	CMSIS/device
+	contrib/CMSIS/core
+	contrib/CMSIS/device
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
