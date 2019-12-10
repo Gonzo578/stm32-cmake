@@ -1,4 +1,4 @@
-SET(TOOLCHAIN_DIR "/home/gonzo/toolchain/gcc-arm-none-eabi-8-2019-q3-update-linux/gcc-arm-none-eabi-8-2019-q3-update")
+SET(TOOLCHAIN_DIR "/usr/bin/gcc-arm-none-eabi-8-2019-q3-update")
 SET(TOOLCHAIN_PREFIX "arm-none-eabi")
 SET(TOOLCHAIN_BIN_DIR "${TOOLCHAIN_DIR}/bin")
 SET(TOOLCHAIN_INC_DIR "${TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}/include")
