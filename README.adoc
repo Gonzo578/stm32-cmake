@@ -1,5 +1,21 @@
 # CMake Build System for STM32 Microcontrollers
 
+This project has the goal to build up a toolchain to build software for STM32 microcontrollers
+running under Linux (Ubuntu18.04 in my case) using the CMake build system generator and docker.
+
+Goals:
+
+* Encapsulate the build toolchain (compiler, cmake, ...) within a docker container https://github.com/Gonzo578/docker-toolchain [toolchain]
+* Create the build system by using CMake
+
+Step by step integrate further tools
+
+* Support unit testing by using gtest (on host system) with a separate docker container including the host toolchain 
+* Code documentation using doxygen
+* Developer documentation
+* Code style checks (clang-format)
+* Static code analysis (clang-tidy)
+
 ## Using the Docker Toolchain to Build your SW
 
 In order to build your sowtware using docker, move to your project root directory and start the docker container as follows:
@@ -25,3 +41,7 @@ In order to build the software inside the container conduct the following steps:
 
 This runs cmake with the proper CMake toolchain file (location: ´/cmake/toolchain.cmake´) and with
 build type ´debug´ in order to include debugging outputs in the build results. 
+
+## Test Environment
+
+The toolchain has been checked by using a STM3F4Disco board. (https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
