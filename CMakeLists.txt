@@ -22,10 +22,10 @@ SET(PROJECT_SOURCES
     startup/startup_stm32f407xx.s
 )
 
-include_directories(${CMAKE_PROJECT_NAME}
+include_directories(
 	inc
-	contrib/CMSIS/core
-	contrib/CMSIS/device
+	${CMAKE_CURRENT_SOURCE_DIR}/contrib/CMSIS/core
+	${CMAKE_CURRENT_SOURCE_DIR}/contrib/CMSIS/device
 )
 
 add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
