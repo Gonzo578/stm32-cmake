@@ -10,11 +10,12 @@ Goals:
 
 Step by step integrate further tools
 
-* Support unit testing by using gtest (on host system) with a separate docker container including the host toolchain 
-* Code documentation using doxygen
+* Support unit testing by using gtest (on host system) with a separate docker container including the host toolchain
+* Package management using conan (https://conan.io/)
+* Code documentation using doxygen (http://www.doxygen.nl/)
 * Developer documentation
-* Code style checks (clang-format)
-* Static code analysis (clang-tidy)
+* Code style checks clang-format (https://clang.llvm.org/docs/ClangFormat.html)
+* Static code analysis clang-tidy (https://clang.llvm.org/extra/clang-tidy/)
 
 ## Using the Docker Toolchain to Build your SW
 
@@ -44,4 +45,5 @@ build type ´debug´ in order to include debugging outputs in the build results.
 
 ## Test Environment
 
-The toolchain has been checked by using a STM3F4Disco board. (https://www.st.com/en/evaluation-tools/stm32f4discovery.html)
+The toolchain has been checked by using a STM3F4Disco board. (https://www.st.com/en/evaluation-tools/stm32f4discovery.html).
+Debugging is done with the STM32 System Workbench (https://www.st.com/en/development-tools/sw4stm32.html)
