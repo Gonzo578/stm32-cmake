@@ -4,8 +4,24 @@
 
 In order to build your sowtware using docker, move to your project root directory and start the docker container as follows:
 
-´docker run -it -v $(pwd):$(pwd) gonzo578/gcc-arm-embedded-2019q3 /bin/bash´
+docker run -it -v $(pwd):$(pwd) gonzo578/gcc-arm-embedded-2019q3:V0.0.1 /bin/bash
+
+This starts a docker contrainer including the gcc-arm-embeedded-2019q3 toolchain. The projects root
+directory is mapped to the same directory inside the container. This is required because currently the
+pathes inside of the build results are absolute. In order to debug the application outside of the
+container, the pathes need to be the same (else, the debugger would not find the source files). The other
+solution can be to manually configure the source file locations for the debugger.
 
 ## Running your Build
 
+In order to build the software inside the container conduct the following steps:
+
+* Change to the project root folder (same as outside of the container)
+* Create a build folder (´mkdir build´) => use out of source builds!
+* Change to the build folder (´cd build´)
+* run the following command
+
  cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..
+
+This runs cmake with the proper CMake toolchain file (location: ´/cmake/toolchain.cmake´) and with
+build type ´debug´ in order to include debugging outputs in the build results. 
