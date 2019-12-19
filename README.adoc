@@ -4,7 +4,7 @@
 
 In order to build your sowtware using docker, move to your project root directory and start the docker container as follows:
 
-docker run -it -v $(pwd):$(pwd) gonzo578/gcc-arm-embedded-2019q3:V0.0.1 /bin/bash
+ docker run -it -v $(pwd):$(pwd) gonzo578/gcc-arm-embedded-2019q3:V0.0.1 /bin/bash
 
 This starts a docker contrainer including the gcc-arm-embeedded-2019q3 toolchain. The projects root
 directory is mapped to the same directory inside the container. This is required because currently the
