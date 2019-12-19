@@ -11,6 +11,9 @@ endif()
 CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 ENABLE_LANGUAGE(ASM)
 
+# Add path to 3rd party SW libraries
+add_subdirectory(contrib)
+
 SET(PROJECT_SOURCES
     src/main.cpp
     src/stm32f4xx_it.c
