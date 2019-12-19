@@ -8,4 +8,4 @@ In order to build your sowtware using docker, move to your project root director
 
 ## Running your Build
 
-´cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..´
+´´´cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..´´´
