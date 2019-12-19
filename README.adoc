@@ -1,1 +1,11 @@
 # CMake Build System for STM32 Microcontrollers
+
+## Using the Docker Toolchain to Build your SW
+
+In order to build your sowtware using docker, move to your project root directory and start the docker container as follows:
+
+´docker run -it -v $(pwd):$(pwd) gonzo578/gcc-arm-embedded-2019q3 /bin/bash´
+
+## Running your Build
+
+´cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..´
