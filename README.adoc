@@ -28,6 +28,9 @@ directory is mapped to the same directory inside the container. This is required
 pathes inside of the build results are absolute. In order to debug the application outside of the
 container, the pathes need to be the same (else, the debugger would not find the source files). The other
 solution can be to manually configure the source file locations for the debugger.
+For convenience a script is provided with the project to start the docker container:
+
+ ./run-docker.sh 
 
 ## Running your Build
 
