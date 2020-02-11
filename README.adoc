@@ -37,7 +37,8 @@ For convenience a script is provided with the project to start the docker contai
 In order to build the software inside the container conduct the following steps:
 
 * Change to the project root folder (same as outside of the container)
-* Create a build folder (´mkdir build´) => use out of source builds!
+* Create a build folder (´mkdir build´) => use out of source builds! (Note: the CMakeLists.txt is configured to generte an error if
+	you try to build directly in the source tree)
 * Change to the build folder (´cd build´)
 * run the following command
 
