@@ -6,6 +6,7 @@ running under Linux (Ubuntu18.04 in my case) using the CMake build system genera
 Goals:
 
 * Encapsulate the build toolchain (compiler, cmake, ...) within a docker container https://github.com/Gonzo578/docker-toolchain [toolchain]
+* Build docker images in a way that single major tools can be easily exchanged without creating big images.
 * Create the build system by using CMake
 
 Step by step integrate further tools
