@@ -14,6 +14,9 @@ ENABLE_LANGUAGE(ASM)
 # Add path to 3rd party SW libraries
 add_subdirectory(contrib)
 
+# Add path to component libraries
+add_subdirectory(components)
+
 SET(PROJECT_SOURCES
     src/main.cpp
     src/stm32f4xx_it.c
