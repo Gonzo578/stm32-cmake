@@ -17,21 +17,30 @@ add_subdirectory(contrib)
 # Add path to component libraries
 add_subdirectory(components)
 
-SET(PROJECT_SOURCES
-    src/main.cpp
-    src/stm32f4xx_it.c
-    src/syscalls.c
-    src/system_stm32f4xx.c
-    startup/startup_stm32f407xx.s
+set( PROJECT_SOURCES
+     src/main.cpp
+     src/stm32f4xx_it.c
+     src/syscalls.c
+     src/system_stm32f4xx.c
+     startup/startup_stm32f407xx.s
+)
+
+set( component_libs
+	 dio
 )
 
 include_directories(
 	inc
 	${CMAKE_CURRENT_SOURCE_DIR}/contrib/CMSIS/core
 	${CMAKE_CURRENT_SOURCE_DIR}/contrib/CMSIS/device
+	${CMAKE_CURRENT_SOURCE_DIR}/components
 )
 
+# Main project target
 add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
+
+# Target link libraries
+target_link_libraries(${CMAKE_PROJECT_NAME} ${component_libs})
 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC STM32 STM32F4 STM32F407VGTx STM32F407xx DEBUG)
 

@@ -7,14 +7,8 @@
   * @brief   Default main function.
   ******************************************************************************
 */
-#include "stm32f4xx.h"
 #include <cstdint>
-
-static void HWSetup(void)  {
-	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
-	GPIOD->ODR   |= 0x0000F000;
-	GPIOD->MODER |= 0x55000000;
-}
+#include "mcal/dio/inc/dio.h"
 
 int main(void)
 {
@@ -26,13 +20,13 @@ int main(void)
 
 		}
 
-		GPIOD->BSRR = 0xF0000000;
+		ToggleLeds();
 
 		for(i = 1000000; i>0; i--) {
 
 		}
 
-		GPIOD->BSRR = 0x0000F000;
+		ToggleLeds();
 	}
 
 	return 0;
