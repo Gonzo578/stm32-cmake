@@ -1,3 +1,4 @@
+# Define cmsis as header only library target
 add_library(cmsis INTERFACE)
 
 # Component include pathes
