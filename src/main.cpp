@@ -8,11 +8,12 @@
   ******************************************************************************
 */
 #include <cstdint>
-#include "mcal/dio/inc/dio.h"
+#include "dio.h"
 
 int main(void)
 {
 	uint32_t i;
+
 	HWSetup();
 
 	for(;;) {
