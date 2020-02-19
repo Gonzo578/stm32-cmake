@@ -17,16 +17,17 @@ add_subdirectory(contrib)
 # Add path to component libraries
 add_subdirectory(components)
 
-set( PROJECT_SOURCES
-     src/main.cpp
-     src/stm32f4xx_it.c
-     src/syscalls.c
-     src/system_stm32f4xx.c
-     startup/startup_stm32f407xx.s
-)
-
 # Main project target
-add_executable(${CMAKE_PROJECT_NAME} ${PROJECT_SOURCES})
+add_executable(${CMAKE_PROJECT_NAME} "")
+
+target_sources( ${CMAKE_PROJECT_NAME}
+	PRIVATE
+		src/main.cpp
+     	src/stm32f4xx_it.c
+     	src/syscalls.c
+     	src/system_stm32f4xx.c
+     	startup/startup_stm32f407xx.s
+)
 
 target_include_directories( ${CMAKE_PROJECT_NAME}
 	PUBLIC
