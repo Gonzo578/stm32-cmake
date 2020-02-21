@@ -12,7 +12,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 ENABLE_LANGUAGE(ASM)
 
 # Add path to 3rd party SW libraries
-add_subdirectory(contrib)
+add_subdirectory(3rdparty)
 
 # Add path to component libraries
 add_subdirectory(components)
