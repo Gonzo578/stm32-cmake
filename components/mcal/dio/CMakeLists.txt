@@ -1,11 +1,12 @@
-# Component source configuration
-set(dio_src src/dio.cpp)
-
 # Component is compiled into a library
-add_library(dio ${dio_src})
+add_library(dio "")
+
+target_sources(dio
+	PRIVATE
+		src/dio.cpp)
 
 # Component include pathes
-target_include_directories( dio
+target_include_directories(dio
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/inc
 	PRIVATE
