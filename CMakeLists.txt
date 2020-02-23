@@ -26,12 +26,7 @@ target_sources( ${CMAKE_PROJECT_NAME}
      	src/stm32f4xx_it.c
      	src/syscalls.c
      	src/system_stm32f4xx.c
-     	startup/startup_stm32f407xx.s
-)
-
-target_include_directories( ${CMAKE_PROJECT_NAME}
-	PUBLIC
-		inc
+     	src/startup_stm32f407xx.s
 )
 
 # Target link libraries
