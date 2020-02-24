@@ -33,6 +33,7 @@ target_sources( ${CMAKE_PROJECT_NAME}
 target_link_libraries( ${CMAKE_PROJECT_NAME} 
 	cmsis
 	dio
+	adder
 )
 
 target_compile_definitions(${CMAKE_PROJECT_NAME}

@@ -9,16 +9,19 @@
 */
 #include <cstdint>
 #include "dio.h"
+#include "adder.h"
 
 int main(void)
 {
 	uint32_t i;
+	uint32_t Result = 0;
+	Adder AddComponent;
 
 	HWSetup();
 
 	for(;;) {
 		for(i = 1000000; i>0; i--) {
-
+			Result = AddComponent.add(i, Result);
 		}
 
 		ToggleLeds();
