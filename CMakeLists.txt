@@ -1,3 +1,4 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 PROJECT(stm32-minimal-cpp)
 
 # Disable in-source builds to prevent source tree corruption.
@@ -8,7 +9,6 @@ if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
 ")
 endif()
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
 ENABLE_LANGUAGE(ASM)
 
 # Add path to 3rd party SW libraries
