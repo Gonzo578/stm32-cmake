@@ -51,12 +51,15 @@ build type ´debug´ in order to include debugging outputs in the build results.
 ### Using clang-tidy
 
 Running static code analysis can be achieved by using the following command:
+
  cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_CXX_CLANG_TIDY=/usr/bin/clang-tidy;-checks=google-*,cppcoreguidelines-*" ..
 
 This includes clang-tidy during the build with checks related to:
 
 * Google coding guidelines ( https://google.github.io/styleguide/cppguide.html )
 * C++ core guidelines ( https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines )
+
+Precodition is that you use a docker image that includes clang-tidy in its base image (toolchain image starting from V0.1.0).
 
 ## Test Environment
 
