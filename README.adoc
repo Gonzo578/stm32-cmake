@@ -16,7 +16,7 @@ Step by step integrate further tools
 * Code documentation using doxygen (http://www.doxygen.nl/)
 * Developer documentation
 * Code style checks clang-format (https://clang.llvm.org/docs/ClangFormat.html)
-* Static code analysis clang-tidy (https://clang.llvm.org/extra/clang-tidy/)
+* [done] Static code analysis clang-tidy (https://clang.llvm.org/extra/clang-tidy/)
 
 ## Using the Docker Toolchain to Build your SW
 
@@ -47,6 +47,16 @@ In order to build the software inside the container conduct the following steps:
 
 This runs cmake with the proper CMake toolchain file (location: ´/cmake/toolchain.cmake´) and with
 build type ´debug´ in order to include debugging outputs in the build results. 
+
+### Using clang-tidy
+
+Running static code analysis can be achieved by using the following command:
+ cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_CXX_CLANG_TIDY=/usr/bin/clang-tidy;-checks=google-*,cppcoreguidelines-*" ..
+
+This includes clang-tidy during the build with checks related to:
+
+* Google coding guidelines ( https://google.github.io/styleguide/cppguide.html )
+* C++ core guidelines ( https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines )
 
 ## Test Environment
 
