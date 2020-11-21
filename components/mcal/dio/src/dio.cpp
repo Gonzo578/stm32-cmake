@@ -13,11 +13,11 @@ void HWSetup(void)  {
 void ToggleLeds(void) {
 	if(ToggleState == 0) {
 		ToggleState = 1;
-		GPIOD->BSRR = 0x30000000;
-		//GPIOD->BSRR = 0xF0000000;
+		//GPIOD->BSRR = 0x30000000;
+		GPIOD->BSRR = 0xF0000000;
 	} else {
 		ToggleState = 0;
-		GPIOD->BSRR = 0x00003000;
-		//GPIOD->BSRR = 0x0000F000;
+		//GPIOD->BSRR = 0x00003000;
+		GPIOD->BSRR = 0x0000F000;
 	}
 }
