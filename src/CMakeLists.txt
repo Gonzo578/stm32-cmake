@@ -23,8 +23,8 @@ target_link_libraries( ${CMAKE_PROJECT_NAME}
 
 target_compile_definitions(${CMAKE_PROJECT_NAME}
 	PRIVATE
-		STM32
-		STM32F4
+		STM32				# MCU type
+		STM32F4				
 		STM32F407VGTx
 		STM32F407xx
 )
