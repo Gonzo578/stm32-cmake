@@ -9,6 +9,9 @@ if(" ${CMAKE_SOURCE_DIR}" STREQUAL " ${CMAKE_BINARY_DIR}")
 ")
 endif()
 
+# Add cmake module path in order to give access to it for the whole project
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 # Add path to 3rd party SW libraries
 add_subdirectory(3rdparty)
 

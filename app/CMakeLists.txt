@@ -2,6 +2,8 @@ project(stm32-minimal-cpp)
 
 ENABLE_LANGUAGE(ASM)
 
+include(utilities)
+
 # Main project target
 add_executable(Hello_Stm32 "")
 
