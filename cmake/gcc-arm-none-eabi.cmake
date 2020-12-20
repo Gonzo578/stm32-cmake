@@ -15,13 +15,17 @@ SET(CMAKE_SIZE "${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-size" CACHE INTERNAL "s
 SET(CMAKE_DEBUGGER "${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gdb" CACHE INTERNAL "debugger")
 SET(CMAKE_CPPFILT "${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-c++filt" CACHE INTERNAL "C++filt")
 
+SET(CMAKE_C_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -Wall -fdata-sections -ffunction-sections -fno-builtin" CACHE INTERNAL "c compiler flags")
+SET(CMAKE_CXX_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -Wall -fdata-sections -ffunction-sections -fno-builtin -fno-rtti -fno-exceptions" CACHE INTERNAL "cxx compiler flags")
+SET(CMAKE_ASM_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -x assembler-with-cpp" CACHE INTERNAL "asm compiler flags")
+
 SET(CMAKE_C_FLAGS_DEBUG "-Og -g" CACHE INTERNAL "c compiler flags debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "-Og -g" CACHE INTERNAL "cxx compiler flags debug")
 SET(CMAKE_ASM_FLAGS_DEBUG "-g" CACHE INTERNAL "asm compiler flags debug")
 SET(CMAKE_EXE_LINKER_FLAGS_DEBUG "" CACHE INTERNAL "linker flags debug")
 
-SET(CMAKE_C_FLAGS_RELEASE "-Os -flto" CACHE INTERNAL "c compiler flags release")
-SET(CMAKE_CXX_FLAGS_RELEASE "-Os -flto" CACHE INTERNAL "cxx compiler flags release")
+SET(CMAKE_C_FLAGS_RELEASE "-O3 -flto" CACHE INTERNAL "c compiler flags release")
+SET(CMAKE_CXX_FLAGS_RELEASE "-O3 -flto" CACHE INTERNAL "cxx compiler flags release")
 SET(CMAKE_ASM_FLAGS_RELEASE "" CACHE INTERNAL "asm compiler flags release")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE "-flto" CACHE INTERNAL "linker flags release")
 
@@ -30,13 +34,9 @@ SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-SET(CMAKE_C_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -fno-builtin -Wall -std=gnu11 -ffunction-sections -fdata-sections -fomit-frame-pointer -mabi=aapcs -fno-unroll-loops -ffast-math -ftree-vectorize" CACHE INTERNAL "c compiler flags")
-SET(CMAKE_CXX_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -fno-builtin -Wall -ffunction-sections -fdata-sections -fomit-frame-pointer -mabi=aapcs -fno-unroll-loops -ffast-math -ftree-vectorize" CACHE INTERNAL "cxx compiler flags")
-SET(CMAKE_ASM_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -x assembler-with-cpp" CACHE INTERNAL "asm compiler flags")
-
-SET(CMAKE_EXE_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -Wl,--gc-sections -mabi=aapcs" CACHE INTERNAL "executable linker flags")
-SET(CMAKE_MODULE_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -mabi=aapcs" CACHE INTERNAL "module linker flags")
-SET(CMAKE_SHARED_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -mabi=aapcs" CACHE INTERNAL "shared linker flags")
+SET(CMAKE_EXE_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS} -Wl,--gc-sections" CACHE INTERNAL "executable linker flags")
+SET(CMAKE_MODULE_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS}" CACHE INTERNAL "module linker flags")
+SET(CMAKE_SHARED_LINKER_FLAGS "${MCPU_FLAGS} ${VFP_FLAGS} ${SPEC_FLAGS}" CACHE INTERNAL "shared linker flags")
 
 FUNCTION(ADD_BIN_TARGETS TARGET)
 	ADD_CUSTOM_TARGET(${TARGET}.elf ALL DEPENDS ${TARGET} COMMAND cp ${TARGET} ${TARGET}.elf)
