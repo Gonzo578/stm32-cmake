@@ -43,10 +43,12 @@ In order to build the software inside the container conduct the following steps:
 * Change to the build folder (´cd build´)
 * run the following command
 
- cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/toolchain.cmake -DCMAKE_BUILD_TYPE=Debug ..
+ cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/cm4.cmake -DCMAKE_BUILD_TYPE=Debug ..
 
-This runs cmake with the proper CMake toolchain file (location: ´/cmake/toolchain.cmake´) and with
+This runs cmake with the proper CMake toolchain file (location: ´/cmake/cm4.cmake´) and with
 build type ´debug´ in order to include debugging outputs in the build results. 
+
+NOTE: In future more basic toolchain files will be added instead of cm4.cmake.
 
 ### Using clang-tidy
 
