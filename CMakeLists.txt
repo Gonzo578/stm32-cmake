@@ -15,4 +15,4 @@ add_subdirectory(3rdparty)
 # Add path to component libraries
 add_subdirectory(components)
 
-add_subdirectory(src)
+add_subdirectory(app)
