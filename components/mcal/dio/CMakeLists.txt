@@ -8,6 +8,7 @@ target_sources(dio
 
 target_link_libraries(dio
 	PRIVATE
+		mcu_platform
 		cmsis
 )
 

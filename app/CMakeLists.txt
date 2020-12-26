@@ -15,7 +15,8 @@ target_sources( ${CMAKE_PROJECT_NAME}
 )
 
 # Target link libraries
-target_link_libraries( ${CMAKE_PROJECT_NAME} 
+target_link_libraries( ${CMAKE_PROJECT_NAME}
+	mcu_platform
 	cmsis
 	dio
 	adder
