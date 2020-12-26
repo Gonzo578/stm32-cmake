@@ -1,5 +1,3 @@
-project(stm32-minimal-cpp)
-
 ENABLE_LANGUAGE(ASM)
 
 include(utilities)
