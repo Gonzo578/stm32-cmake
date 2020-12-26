@@ -15,6 +15,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 # Add path to 3rd party SW libraries
 add_subdirectory(3rdparty)
 
+# Add path to platform libraries
+add_subdirectory(platform)
+
 # Add path to component libraries
 add_subdirectory(components)
 
