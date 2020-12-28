@@ -13,5 +13,5 @@ add_library(mcu_platform INTERFACE)
 
 target_include_directories(mcu_platform
 	INTERFACE
-		${CMAKE_CURRENT_SOURCE_DIR}/Device/F4
+		${CMAKE_CURRENT_SOURCE_DIR}/Device/STM32F4xx
 )
