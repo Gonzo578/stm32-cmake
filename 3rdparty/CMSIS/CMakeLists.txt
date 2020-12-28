@@ -6,7 +6,7 @@ add_library(cmsis INTERFACE)
 # Component include pathes
 target_include_directories(cmsis
 	INTERFACE
-		${CMAKE_CURRENT_SOURCE_DIR}/core
+		${CMAKE_CURRENT_SOURCE_DIR}/Core
 )
 
 add_library(mcu_platform INTERFACE)
