@@ -20,7 +20,6 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 #include "stm32g4xx_it.h"
 
 /** @addtogroup STM32G4xx_HAL_Examples
@@ -138,7 +137,6 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  HAL_IncTick();
 }
 
 /******************************************************************************/

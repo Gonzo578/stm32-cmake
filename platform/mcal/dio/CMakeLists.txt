@@ -18,4 +18,10 @@ target_include_directories(dio
 		${CMAKE_CURRENT_SOURCE_DIR}/inc
 )
 
-target_compile_definitions(dio PUBLIC STM32 STM32F4 STM32F407VGTx STM32F407xx)
+target_compile_definitions(dio
+	PUBLIC
+		STM32				# MCU type
+		STM32G4				
+		STM32G474RETx
+		STM32G474xx
+)
