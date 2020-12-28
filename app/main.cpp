@@ -20,13 +20,13 @@ int main(void)
 	HWSetup();
 
 	for(;;) {
-		for(i = 1000000; i>0; i--) {
+		for(i = 500000; i>0; i--) {
 			Result = AddComponent.add(i, Result);
 		}
 
 		ToggleLeds();
 
-		for(i = 1000000; i>0; i--) {
+		for(i = 500000; i>0; i--) {
 
 		}
 
