@@ -2,3 +2,4 @@
 # Build configurations are included in the components CMakeLists.txt file
 add_subdirectory(adder)
 add_subdirectory(relay)
+add_subdirectory(led)
