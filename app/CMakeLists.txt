@@ -20,6 +20,7 @@ target_link_libraries( ${CMAKE_PROJECT_NAME}
 	cmsis
 	dio
 	adder
+	led
 )
 
 target_compile_definitions(${CMAKE_PROJECT_NAME}

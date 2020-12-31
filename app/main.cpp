@@ -10,12 +10,14 @@
 #include <cstdint>
 #include "dio.h"
 #include "adder.h"
+#include "led.h"
 
 int main(void)
 {
 	uint32_t i;
 	uint32_t Result = 0;
 	Adder AddComponent;
+	Led LifeLED{Led::State::OFF};
 
 	HWSetup();
 
@@ -24,13 +26,13 @@ int main(void)
 			Result = AddComponent.add(i, Result);
 		}
 
-		ToggleLeds();
+		LifeLED.switchOn();
 
 		for(i = 1000000; i>0; i--) {
 
 		}
 
-		ToggleLeds();
+		LifeLED.switchOff();
 	}
 
 	return 0;

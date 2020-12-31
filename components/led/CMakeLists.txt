@@ -6,8 +6,14 @@ target_sources(led
 		src/led.cpp
 )
 
+target_link_libraries(led
+	PRIVATE
+		dio
+)
+
 # Component include pathes
 target_include_directories(led
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/inc
+	PRIVATE
 )

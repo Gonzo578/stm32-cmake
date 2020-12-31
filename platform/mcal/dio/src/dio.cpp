@@ -19,3 +19,11 @@ void ToggleLeds(void) {
 		GPIOA->BSRR = 0x00200000;
 	}
 }
+
+void SetPin(void) {
+	GPIOA->BSRR = 0x00000020;
+}
+
+void ResetPin(void) {
+	GPIOA->BSRR = 0x00200000;
+}
