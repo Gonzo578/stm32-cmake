@@ -161,6 +161,7 @@
 
 void SystemInit(void)
 {
+	uint32_t	temp;
   /* FPU settings ------------------------------------------------------------*/
   #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
     SCB->CPACR |= ((3UL << (10*2))|(3UL << (11*2)));  /* set CP10 and CP11 Full Access */
@@ -172,6 +173,44 @@ void SystemInit(void)
 #else
   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 #endif
+
+  /* 4 waitstates @170MHz */
+  FLASH->ACR |= 4;
+
+  /* Setup core clock to HSE */
+  RCC->CR |= RCC_CR_HSEON;
+  while((RCC->CR & RCC_CR_HSERDY) == 0);	// wait until HSE is ready
+
+  // switch system clock to HSE (SW = 2)
+  RCC->CFGR = 2;
+
+  /* Now move on to switch to 170 MHz */
+  RCC->CFGR |= 0x00000080;		/* configure AHB prescaler to /2 => we should not do the switch in one step */
+
+  // Configure PLL
+  RCC->CR &= ~RCC_CR_PLLON;					// disable PLL
+  while((RCC->CR & RCC_CR_PLLRDY) != 0);
+
+  // configure PLL
+  RCC->PLLCFGR = (0 << RCC_PLLCFGR_PLLR_Pos) | (85 << RCC_PLLCFGR_PLLN_Pos) | ((6-1) << RCC_PLLCFGR_PLLM_Pos) | (3 << RCC_PLLCFGR_PLLSRC_Pos);
+
+  // enable PLL
+  RCC->CR |= RCC_CR_PLLON;
+  while((RCC->CR & RCC_CR_PLLRDY) == 0);
+
+  RCC->PLLCFGR |= (1 << RCC_PLLCFGR_PLLREN_Pos);	// enable PLL channel for system clock
+
+  // select PLL as system clock
+  RCC->CFGR |= 0x00000003;
+
+  // wait at least 1us
+  for(temp = 1000;temp>0;temp--);
+
+  // enable boost mode of pwr supply
+  PWR->CR5 &= ~PWR_CR5_R1MODE;
+
+  // switch to high frequency
+  RCC->CFGR &= 0xFFFFFF0F;
 }
 
 /**

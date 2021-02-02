@@ -22,13 +22,13 @@ int main(void)
 	HWSetup();
 
 	for(;;) {
-		for(i = 1000000; i>0; i--) {
+		for(i = 10000000; i>0; i--) {
 			Result = AddComponent.add(i, Result);
 		}
 
 		LifeLED.switchOn();
 
-		for(i = 1000000; i>0; i--) {
+		for(i = 10000000; i>0; i--) {
 
 		}
 
