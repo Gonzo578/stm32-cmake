@@ -29,7 +29,7 @@ int main(void)
 		LifeLED.switchOn();
 
 		for(i = 10000000; i>0; i--) {
-
+			Result = AddComponent.add(i, Result);
 		}
 
 		LifeLED.switchOff();
