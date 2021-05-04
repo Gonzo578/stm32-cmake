@@ -9,6 +9,27 @@ Goals:
 * Build docker images in a way that single major tools can be easily exchanged without creating big images.
 * Create the build system by using CMake
 
+# General Idea
+Why does building SW for a microcontroller look so much different compared to building software for a linux system?
+Therefore, the general idea is to build a toolchain that is easily maintainable and capable to run builds for a linux
+native system and the target system without doing something different. The native build will then be used to 
+run e.g. unit tests of the different software modules and the target build is clearly used to run the "real" SW
+on the target system to have fun.
+Genrally CMake is prepared for cross compiling by providing it a toolchain file where CMake gets all the target specfic
+stuff out. Instead the approach here is to build a docker container which is designed in a way where CMake can automatically
+detect by itself the target environment. That means the docker container comes only with the appropriate toolchain
+used to build either native or target (Cortex M). All pathes are configured within the container to look like on
+any other Linux distribution.
+In order to provide the general build configuration (all compiler/linker settings) that affect the ABI the idea is
+to ship the container with a conan profile that provides these settings. By this means, the idea is to get rid of the
+toolchain file at all. So the build always looks like a native build and one only needs to replace the docker container
+where the build is run inside.
+This has the further addvantage, that also on the embedded MCU the precompiled libraries can be used as packages without
+re-compiling and further ensuring binary compatibility. 
+
+
+## To Be Continued
+
 Step by step integrate further tools
 
 * Support unit testing by using gtest (on host system) with a separate docker container including the host toolchain
