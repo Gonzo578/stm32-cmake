@@ -25,7 +25,10 @@ to ship the container with a conan profile that provides these settings. By this
 toolchain file at all. So the build always looks like a native build and one only needs to replace the docker container
 where the build is run inside.
 This has the further addvantage, that also on the embedded MCU the precompiled libraries can be used as packages without
-re-compiling and further ensuring binary compatibility. 
+re-compiling and further ensuring binary compatibility.
+
+Refernce
+Conan for STM32 discussion: ( https://github.com/conan-io/conan/issues/86 )
 
 
 ## To Be Continued
