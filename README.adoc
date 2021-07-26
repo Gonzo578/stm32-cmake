@@ -69,8 +69,11 @@ In order to build the software inside the container conduct the following steps:
 
  cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/cm4.cmake -DCMAKE_BUILD_TYPE=Debug ..
 
+Or just call the build-target.sh script which does the same thing for you incl. the final build command.
+
 This runs cmake with the proper CMake toolchain file (location: ´/cmake/cm4.cmake´) and with
-build type ´debug´ in order to include debugging outputs in the build results. 
+build type ´debug´ in order to include debugging outputs in the build results.
+
 
 NOTE: In future more basic toolchain files will be added instead of cm4.cmake.
 
