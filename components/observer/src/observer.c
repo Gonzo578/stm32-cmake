@@ -1,5 +1,4 @@
 #include "IObserver.h"
-#include "ISubject.h"
 #include <stddef.h>
 
 void OBS_CreateSubject(Subject_t* pSubject) {
