@@ -3,3 +3,4 @@
 add_subdirectory(adder)
 add_subdirectory(relay)
 add_subdirectory(led)
+add_subdirectory(observer)
