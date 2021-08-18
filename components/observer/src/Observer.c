@@ -37,7 +37,7 @@ void OBS_Detach(Subject_t* pSubject, Observer_t* pObserver) {
 }
 
 void OBS_Notify(Subject_t* pSubject) {
-    pObserver* pTmp = pSubject->pHead;
+    Observer_t* pTmp = pSubject->pHead;
 
     //iterate over observer list and call all the update functions
     while(pTmp != NULL) {
