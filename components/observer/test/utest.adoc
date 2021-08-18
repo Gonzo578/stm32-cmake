@@ -1,3 +1,20 @@
 = Unit Testing List
 
 This list serves as a todo list in order to not forget any unit test later.
+
+# Test Cases
+
+* Create subject
+* Create observer
+* Attach observer
+** Attach single observer
+** Attach multiple observers
+* Detach observer (equivalence class test)
+** Detach first observer in the list
+** Detach last observer in the list
+** Detach any observer in the middle
+** Error Case: Detach observer that is not attached at all
+* Notify observers
+** Notify observers (single observer is registered)
+** Notify observers (multiple observers are registered)
+** Notify observers single observers have not defined a callback/update function
