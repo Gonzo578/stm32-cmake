@@ -1,13 +1,13 @@
 # Component is compiled into a library
-add_library(observer "")
+add_library(Observer "")
 
-target_sources(observer
+target_sources(Observer
 	PRIVATE
-		src/observer.c
+		src/Observer.c
 )
 
 # Component include pathes
-target_include_directories(observer
+target_include_directories(Observer
 	PUBLIC
 		${CMAKE_CURRENT_SOURCE_DIR}/inc
 	PRIVATE
