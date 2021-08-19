@@ -3,6 +3,7 @@
 
 void OBS_CreateSubject(Subject_t* pSubject) {
     pSubject->pHead     = NULL;
+    pSubject->cnt       = 0;
 }
 
 void OBS_CreateObserver(Observer_t* pObserver, Observer_cb_t cb) {
