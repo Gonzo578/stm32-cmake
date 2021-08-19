@@ -21,10 +21,5 @@ namespace Observer {
         TEST_F(ObserverTest, constructor_foo) {
 		    EXPECT_THAT(true, Eq(true));
 	    }
-
-        TEST_F(ObserverTest, constructor_bar) {
-		    EXPECT_THAT(true, Eq(false));
-	    }
-
     }   // namespace testing
 }   // namespace Observer
