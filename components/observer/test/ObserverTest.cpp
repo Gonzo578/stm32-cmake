@@ -12,14 +12,20 @@ namespace Observer {
 		    ObserverTest(){}
 		    ~ObserverTest(){}
             
-            Subject_t subject;
+            Subject_t subject{NULL, 1};
 
 		    virtual void SetUp(){}
 		    virtual void TearDown(){}
 	    };
 
-        TEST_F(ObserverTest, constructor_foo) {
-		    EXPECT_THAT(true, Eq(true));
+        TEST_F(ObserverTest, SubjectIsNotInitializedBeforeCreation) {
+		    EXPECT_THAT(subject.cnt, Eq(1));
 	    }
+
+        TEST_F(ObserverTest, SubjectIsInitializedAfterCreation) {
+            OBS_CreateSubject(&subject);
+		    EXPECT_THAT(subject.cnt, Eq(0));
+	    }
+
     }   // namespace testing
 }   // namespace Observer
