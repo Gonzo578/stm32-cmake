@@ -10,9 +10,9 @@ This list serves as a todo list in order to not forget any unit test later.
 ** [x] Attach single observer
 ** [x] Attach multiple observers
 * [ ] Detach observer (equivalence class test)
-** [ ] Detach first observer in the list
-** [ ] Detach last observer in the list
-** [ ] Detach any observer in the middle
+** [x] Detach first observer in the list
+** [x] Detach last observer in the list
+** [x] Detach any observer in the middle
 ** [ ] Error Case: Detach observer that is not attached at all
 * [ ] Notify observers
 ** [x] Notify observers (single observer is registered)
