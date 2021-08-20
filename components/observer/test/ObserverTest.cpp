@@ -92,6 +92,8 @@ namespace ObserverUnitTest {
             EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
             OBS_Notify(&subject);
             EXPECT_THAT(Observer_1_CallCnt,  Eq(1));
+            OBS_Notify(&subject);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(2));
 	    }
 
     }   // namespace testing
