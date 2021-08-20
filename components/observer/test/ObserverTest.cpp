@@ -78,11 +78,20 @@ namespace ObserverUnitTest {
             EXPECT_THAT(observer_1.p_cb,    NotNull());
 	    }
 
-        TEST_F(ObserverTest, AttachObserverAndNotify) {
+        TEST_F(ObserverTest, AttachSingleObserver) {
             OBS_CreateSubject(&subject);
             OBS_CreateObserver(&observer_1, (Observer_cb_t)Observer1_CB);
 		    OBS_Attach(&subject, &observer_1);
             EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
+	    }
+
+        TEST_F(ObserverTest, AttachSingleObserverAndNotify) {
+            OBS_CreateSubject(&subject);
+            OBS_CreateObserver(&observer_1, (Observer_cb_t)Observer1_CB);
+		    OBS_Attach(&subject, &observer_1);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
+            OBS_Notify(&subject);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(1));
 	    }
 
     }   // namespace testing
