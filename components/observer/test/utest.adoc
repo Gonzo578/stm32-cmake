@@ -4,8 +4,8 @@ This list serves as a todo list in order to not forget any unit test later.
 
 # Test Cases
 
-* [ ] Create subject
-* [ ] Create observer
+* [x] Create subject
+* [x] Create observer
 * [ ] Attach observer
 ** [ ] Attach single observer
 ** [ ] Attach multiple observers
