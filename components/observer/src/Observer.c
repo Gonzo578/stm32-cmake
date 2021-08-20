@@ -29,7 +29,10 @@ void OBS_Detach(Subject_t* pSubject, Observer_t* pObserver) {
     /**
      *  Detaching can take place anywhere in the list
      */
-    if(pObserver->p_prev == NULL) {
+    if((pObserver->p_prev == NULL) && (pObserver->p_next == NULL)) {
+        // passed observer object is not part of the list at all
+        return;
+    } else if (pObserver->p_prev == NULL) {
         // first element is to be detached
         pSubject->pHead = pObserver->p_next;
     } else {
