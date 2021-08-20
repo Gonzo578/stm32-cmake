@@ -16,10 +16,13 @@ void OBS_Attach(Subject_t* pSubject, Observer_t* pObserver) {
     /**
      *  We always attach new observers at head of the list
      */
-    pSubject->pHead->p_prev = pObserver;
     pObserver->p_next       = pSubject->pHead;
     pObserver->p_prev       = NULL;             // this should be already the case but we do it for sake of consistency
-    pSubject->pHead         = pObserver;
+    if(pSubject->pHead != NULL) {
+        // list is not empty ==> change backwards pointer
+        pSubject->pHead->p_prev = pObserver;
+    }
+        pSubject->pHead         = pObserver;
 }
 
 void OBS_Detach(Subject_t* pSubject, Observer_t* pObserver) {
