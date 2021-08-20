@@ -96,5 +96,35 @@ namespace ObserverUnitTest {
             EXPECT_THAT(Observer_1_CallCnt,  Eq(2));
 	    }
 
+        TEST_F(ObserverTest, AttachMultipleObservers) {
+            OBS_CreateSubject(&subject);
+            OBS_CreateObserver(&observer_1, (Observer_cb_t)Observer1_CB);
+            OBS_CreateObserver(&observer_2, (Observer_cb_t)Observer2_CB);
+            OBS_CreateObserver(&observer_3, (Observer_cb_t)Observer3_CB);
+		    OBS_Attach(&subject, &observer_1);
+            OBS_Attach(&subject, &observer_2);
+            OBS_Attach(&subject, &observer_3);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
+            EXPECT_THAT(Observer_2_CallCnt,  Eq(0));
+            EXPECT_THAT(Observer_3_CallCnt,  Eq(0));
+	    }
+
+        TEST_F(ObserverTest, AttachMultipleObserversAndNotify) {
+            OBS_CreateSubject(&subject);
+            OBS_CreateObserver(&observer_1, (Observer_cb_t)Observer1_CB);
+            OBS_CreateObserver(&observer_2, (Observer_cb_t)Observer2_CB);
+            OBS_CreateObserver(&observer_3, (Observer_cb_t)Observer3_CB);
+		    OBS_Attach(&subject, &observer_1);
+            OBS_Attach(&subject, &observer_2);
+            OBS_Attach(&subject, &observer_3);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
+            EXPECT_THAT(Observer_2_CallCnt,  Eq(0));
+            EXPECT_THAT(Observer_3_CallCnt,  Eq(0));
+            OBS_Notify(&subject);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(1));
+            EXPECT_THAT(Observer_2_CallCnt,  Eq(1));
+            EXPECT_THAT(Observer_3_CallCnt,  Eq(1));
+	    }
+
     }   // namespace testing
 }   // namespace Observer
