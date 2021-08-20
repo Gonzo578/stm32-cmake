@@ -12,6 +12,8 @@ typedef struct _Observer_t {
     Observer_cb_t p_cb;
 }Observer_t;
 
+void OBS_CreateObserver(Observer_t* pObserver, Observer_cb_t cb);
+
 #ifdef __cplusplus
 }
 #endif
