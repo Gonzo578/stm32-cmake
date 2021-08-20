@@ -1,6 +1,7 @@
 #include "ISubject.h"
 #include <gmock/gmock.h>
 #include "gtest/gtest.h"
+#include <cstdint>
 
 using testing::Test;
 using testing::Eq;
@@ -10,6 +11,10 @@ using testing::TypedEq;
 
 namespace ObserverUnitTest {
     namespace testing {
+
+        uint32_t Observer_1_CallCnt;
+        uint32_t Observer_2_CallCnt;
+        uint32_t Observer_3_CallCnt;
 	    class ObserverTest : public Test {
 	    protected:
 		    ObserverTest(){}
@@ -29,9 +34,24 @@ namespace ObserverUnitTest {
                 observer_1.p_next   = (Observer_t*)1234;
                 observer_1.p_prev   = (Observer_t*)1234;
                 observer_1.p_cb     = (Observer_cb_t)0;
+                Observer_1_CallCnt  = 0;
+                Observer_2_CallCnt  = 0;
+                Observer_3_CallCnt  = 0;
             }
 
 		    virtual void TearDown(){}
+
+            static void Observer1_CB(void) {
+                Observer_1_CallCnt++;
+            }
+
+            static void Observer2_CB(void) {
+                Observer_2_CallCnt++;
+            }
+            
+            static void Observer3_CB(void) {
+                Observer_3_CallCnt++;
+            }
 	    };
 
         TEST_F(ObserverTest, SubjectIsNotInitializedBeforeCreation) {
@@ -56,6 +76,13 @@ namespace ObserverUnitTest {
 		    EXPECT_THAT(observer_1.p_next,  IsNull());
             EXPECT_THAT(observer_1.p_prev,  IsNull());
             EXPECT_THAT(observer_1.p_cb,    NotNull());
+	    }
+
+        TEST_F(ObserverTest, AttachObserverAndNotify) {
+            OBS_CreateSubject(&subject);
+            OBS_CreateObserver(&observer_1, (Observer_cb_t)Observer1_CB);
+		    OBS_Attach(&subject, &observer_1);
+            EXPECT_THAT(Observer_1_CallCnt,  Eq(0));
 	    }
 
     }   // namespace testing
