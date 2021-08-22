@@ -5,7 +5,7 @@ include(utilities)
 # Main project target
 add_executable(Hello_Stm32 "")
 
-target_sources( ${CMAKE_PROJECT_NAME}
+target_sources( Hello_Stm32
 	PRIVATE
 		main.cpp
      	syscalls.c
@@ -15,15 +15,16 @@ target_sources( ${CMAKE_PROJECT_NAME}
 )
 
 # Target link libraries
-target_link_libraries( ${CMAKE_PROJECT_NAME}
+target_link_libraries( Hello_Stm32
 	mcu_platform
 	cmsis
 	dio
-	adder
 	led
+	obs_example
+	Observer
 )
 
-target_compile_definitions(${CMAKE_PROJECT_NAME}
+target_compile_definitions(Hello_Stm32
 	PRIVATE
 		STM32				# MCU type
 		STM32G4				
