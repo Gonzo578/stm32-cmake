@@ -12,3 +12,8 @@ target_include_directories(BME280_driver
 		${CMAKE_CURRENT_SOURCE_DIR}
 	PRIVATE
 )
+
+target_compile_definitions(BME280_driver
+    PRIVATE
+        BME280_32BIT_ENABLE
+)
