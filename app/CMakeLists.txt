@@ -18,7 +18,7 @@ target_sources( Hello_Stm32
 target_link_libraries( Hello_Stm32
 	mcu_platform
 	cmsis
-	dio
+	mcal_dio
 	led
 	obs_example
 	Observer

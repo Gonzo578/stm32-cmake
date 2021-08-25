@@ -8,7 +8,7 @@ target_sources(led
 
 target_link_libraries(led
 	PRIVATE
-		dio
+		mcal_dio
 )
 
 # Component include pathes
