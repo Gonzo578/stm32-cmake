@@ -8,7 +8,8 @@ add_executable(Hello_Stm32 "")
 target_sources( Hello_Stm32
 	PRIVATE
 		main.cpp
-     	syscalls.c
+     	BSP_setup.c
+		syscalls.c
      	STM32G4xx/stm32g4xx_it.c
      	STM32G4xx/system_stm32g4xx.c
      	STM32G4xx/startup_stm32g474xx.s

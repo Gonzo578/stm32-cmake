@@ -8,6 +8,7 @@
   ******************************************************************************
 */
 #include <cstdint>
+#include "BSP_setup.h"
 #include "dio.h"
 #include "led.h"
 #include "IObserver.h"
@@ -32,7 +33,7 @@ int main(void)
 {
 	Observer_t DemoObsObj;
 	
-	HWSetup();
+	BSP_HWSetup();
 
 	OBS_CreateObserver(&DemoObsObj, NotifyStateChange_CB);
 	OBS_CreateObserverDemo(&OBS_DemoObj);
