@@ -1,0 +1,1 @@
+add_subdirectory(nucleo-g474re)

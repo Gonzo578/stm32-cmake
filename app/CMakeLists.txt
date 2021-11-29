@@ -8,7 +8,6 @@ add_executable(Hello_Stm32 "")
 target_sources( Hello_Stm32
 	PRIVATE
 		main.cpp
-     	BSP_setup.c
 		syscalls.c
      	STM32G4xx/stm32g4xx_it.c
      	STM32G4xx/system_stm32g4xx.c
@@ -20,6 +19,7 @@ target_link_libraries( Hello_Stm32
 	mcu_platform
 	cmsis
 	mcal_dio
+	bsp
 	led
 	obs_example
 	Observer

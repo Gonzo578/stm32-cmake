@@ -18,9 +18,13 @@ add_subdirectory(3rdparty)
 # Add path to platform libraries
 add_subdirectory(platform)
 
+# Add path to board support package
+add_subdirectory(bsp)
+
 # Add path to component libraries
 add_subdirectory(components)
 
+# Path to the application code
 add_subdirectory(app)
 
 # Output some compilation infos
