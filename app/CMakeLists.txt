@@ -23,6 +23,7 @@ target_link_libraries( Hello_Stm32
 	led
 	obs_example
 	Observer
+	fpmath
 )
 
 GET_TARGET_PROPERTY(TARGET_LD_FLAGS ${CMAKE_PROJECT_NAME} LINK_FLAGS)

@@ -11,7 +11,7 @@ void OBS_CreateObserverDemo(ObsExampleObj_t* pObj) {
 uint8_t OBS_HandleOberverDemo(ObsExampleObj_t* pObj) {
     pObj->counter++;
 
-    if(pObj->counter >= 10000000) {
+    if(pObj->counter >= 1000000) {
         pObj->counter = 0;
 
         if(pObj->State == ON) {

@@ -1,0 +1,40 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+PROJECT(fpmath)
+
+###############################################################################
+##  BUILD OPTIONS
+###############################################################################
+option(BUILD_TESTS "Build tests (default OFF)" OFF)
+
+# Component is compiled into a library
+add_library(fpmath "")
+
+target_sources(fpmath
+	PRIVATE
+		src/fpmath.c
+)
+
+# Component include pathes
+target_include_directories(fpmath
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}/inc
+	PRIVATE
+)
+
+###############################################################################
+##  EXAMPLES
+###############################################################################
+#add_subdirectory(examples)
+
+###############################################################################
+##  TESTING
+###############################################################################
+#if(BUILD_TESTS)
+#    message(STATUS "Building tests")
+#    enable_testing()##
+#
+#	include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+#	conan_basic_setup() 
+#
+#	add_subdirectory(test)
+#endif()

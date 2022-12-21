@@ -13,19 +13,29 @@
 #include "led.h"
 #include "IObserver.h"
 #include "obs_example.h"
+#include "fpmath.h"
 
 Led LifeLED{Led::State::OFF};
 ObsExampleObj_t  OBS_DemoObj;
 
 static void NotifyStateChange_CB(void) {
 	ObsDemoState_t _state;
+	TPolNum polNum = {0, 0};
+	TCartNum cartNum = {FP(0.5), FP(0.75)};
+	TAngle angle = 0;
 
 	_state = OBS_GetDemoState(&OBS_DemoObj);
 
 	if(_state == ON) {
-		LifeLED.switchOn();
+		SetPin();
+		FPM_vCart2Pol(&cartNum, &polNum);
+		ResetPin();
+		angle = polNum.siAngle;
+		if(angle < 10) {
+			angle ++;
+		}
 	} else {
-		LifeLED.switchOff();
+		//LifeLED.switchOff();
 	}
 }
 
