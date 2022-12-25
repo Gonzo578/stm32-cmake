@@ -21,7 +21,7 @@ ObsExampleObj_t  OBS_DemoObj;
 static void NotifyStateChange_CB(void) {
 	ObsDemoState_t _state;
 	TPolNum polNum = {0, 0};
-	TCartNum cartNum = {FP(0.5), FP(0.75)};
+	TCartNum cartNum = {FP(0.5), FP(0.5)};
 	TAngle angle = 0;
 
 	_state = OBS_GetDemoState(&OBS_DemoObj);
