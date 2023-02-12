@@ -25,6 +25,18 @@ ENABLE_LANGUAGE(ASM)
 
 include(utilities)
 
+# Add path to 3rd party SW libraries
+add_subdirectory(3rdparty)
+
+# Add path to board support package
+add_subdirectory(bsp)
+
+# Add path to component libraries
+add_subdirectory(components)
+
+# Add path to MCU platform
+add_subdirectory(platform)
+
 # Main project target
 add_executable(Hello_Stm32 "")
 

@@ -35,18 +35,6 @@ endif()
 # Add cmake module path in order to give access to it for the whole project
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
-# Add path to 3rd party SW libraries
-add_subdirectory(3rdparty)
-
-# Add path to platform libraries
-add_subdirectory(platform)
-
-# Add path to board support package
-add_subdirectory(bsp)
-
-# Add path to component libraries
-add_subdirectory(components)
-
 # Path to the application code
 add_subdirectory(app)
 
