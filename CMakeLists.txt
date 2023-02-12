@@ -36,7 +36,7 @@ endif()
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 # Path to the application code
-add_subdirectory(app)
+add_subdirectory(application)
 
 # Output some compilation infos
 message(STATUS "[cmake] Bulid for OS type:		${CMAKE_SYSTEM_NAME}")
