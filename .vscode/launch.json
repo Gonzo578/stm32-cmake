@@ -5,7 +5,7 @@
         {
             "name": "STLink debug",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/app/Hello_Stm32.elf",
+            "executable": "./build/application/Hello_Stm32.elf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "stlink",
