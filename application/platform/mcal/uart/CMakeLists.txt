@@ -31,8 +31,8 @@ target_sources(uart
 
 target_link_libraries(uart
 	PRIVATE
-		mcu_platform
-		cmsis
+		cmsis_core
+		cmsis_device
 )
 
 # Component include pathes

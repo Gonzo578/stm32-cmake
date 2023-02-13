@@ -31,8 +31,8 @@ target_sources(mcal_dio
 
 target_link_libraries(mcal_dio
 	PRIVATE
-		mcu_platform
-		cmsis
+		cmsis_core
+		cmsis_device
 )
 
 # Component include pathes

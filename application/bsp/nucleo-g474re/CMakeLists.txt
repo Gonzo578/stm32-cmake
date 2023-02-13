@@ -16,8 +16,8 @@ target_compile_definitions(bsp
 
 target_link_libraries(bsp
     PRIVATE
-        mcu_platform
-        cmsis
+		cmsis_core
+        cmsis_device
 )
 
 # Component include pathes

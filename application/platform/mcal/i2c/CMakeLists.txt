@@ -31,8 +31,8 @@ target_sources(mcal_i2c
 
 target_link_libraries(mcal_i2c
 	PRIVATE
-		mcu_platform
-		cmsis
+		cmsis_core
+		cmsis_device
 )
 
 # Component include pathes

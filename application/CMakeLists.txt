@@ -51,14 +51,15 @@ target_sources( Hello_Stm32
 
 # Target link libraries
 target_link_libraries( Hello_Stm32
-	mcu_platform
-	cmsis
-	mcal_dio
-	bsp
-	led
-	obs_example
-	Observer
-	fpmath
+	PRIVATE
+		cmsis_core
+		cmsis_device
+		mcal_dio
+		bsp
+		led
+		obs_example
+		Observer
+		fpmath
 )
 
 GET_TARGET_PROPERTY(TARGET_LD_FLAGS ${CMAKE_PROJECT_NAME} LINK_FLAGS)
