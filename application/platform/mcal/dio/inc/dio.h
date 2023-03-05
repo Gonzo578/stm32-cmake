@@ -65,7 +65,7 @@ public:
     virtual PinState_t read(void) = 0;
 };
 
-class DioPin : public IDioPin {
+class DioPin final : public IDioPin {
 public:
     DioPin(GPIO_Port_t& port, Pin_t pin) :
                     _port{port},

@@ -23,7 +23,6 @@
 #pragma once
 
 #include "dio.h"
-
 class Led {
 public:
 	enum class State {
