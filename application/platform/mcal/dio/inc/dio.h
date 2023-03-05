@@ -39,6 +39,7 @@ using GPIO_Port_t = struct GPIOPortRegsiterSet {
     device_register AFR[2];      /*!< GPIO alternate function registers,     Address offset: 0x20-0x24 */
     device_register BRR;         /*!< GPIO Bit Reset register,               Address offset: 0x28      */
 };
+static_assert(sizeof(GPIO_Port_t) == (11*sizeof(device_register)), "GPIO_Port_t cointains extra padding bytes!\n");
 
 static GPIO_Port_t& GPIOA = *reinterpret_cast<GPIO_Port_t*>(0x48000000);
 static GPIO_Port_t& GPIOB = *reinterpret_cast<GPIO_Port_t*>(0x48000400);
