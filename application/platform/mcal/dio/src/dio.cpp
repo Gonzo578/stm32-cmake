@@ -20,27 +20,3 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
-#include "dio.h"
-#include "stm32g4xx.h"
-#include <cstdint>
-
-static uint8_t ToggleState = 0;
-
-void ToggleLeds(void) {
-	if(ToggleState == 0) {
-		ToggleState = 1;
-		GPIOA->BSRR = 0x00000020;
-	} else {
-		ToggleState = 0;
-		GPIOA->BSRR = 0x00200000;
-	}
-}
-
-void SetPin(void) {
-	GPIOA->BSRR = 0x00000020;
-}
-
-void ResetPin(void) {
-	GPIOA->BSRR = 0x00200000;
-}

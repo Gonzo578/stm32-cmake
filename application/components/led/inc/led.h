@@ -22,6 +22,8 @@
 
 #pragma once
 
+#include "dio.h"
+
 class Led {
 public:
 	enum class State {
@@ -29,7 +31,9 @@ public:
 		ON
 	};
 
-	Led(State dflt) : _state(dflt) {};
+	Led(mcal::IDioPin& pin, State defaultState) :
+			_pin{pin},
+			_state{defaultState} {};
 
 	void switchOn(void);
 	void switchOff(void);
@@ -37,5 +41,6 @@ public:
 	State getState (void);
 
 private:
-	State 	_state;		//< Switch state of the led
+	mcal::IDioPin&	_pin;		//< IO pin where the LED is connected to
+	State 			_state;		//< Switch state of the led
 };

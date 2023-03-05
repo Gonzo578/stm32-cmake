@@ -21,15 +21,14 @@
 // SOFTWARE.
 
 #include "led.h"
-#include "dio.h"
 
 void Led::switchOn(void) {
-	SetPin();
+	_pin.set();
 	_state = State::ON;
 }
 
 void Led::switchOff(void) {
-	ResetPin();
+	_pin.reset();
 	_state = State::OFF;
 }
 

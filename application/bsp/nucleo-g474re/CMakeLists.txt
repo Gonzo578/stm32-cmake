@@ -18,6 +18,7 @@ target_link_libraries(bsp
     PRIVATE
 		cmsis_core
         cmsis_device
+		mcal_dio
 )
 
 # Component include pathes

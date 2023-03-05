@@ -49,6 +49,8 @@ target_sources( Hello_Stm32
      	STM32G4xx/startup_stm32g474xx.s
 )
 
+target_compile_features(Hello_Stm32 PUBLIC cxx_std_17)
+
 # Target link libraries
 target_link_libraries( Hello_Stm32
 	PRIVATE
