@@ -34,8 +34,8 @@ public:
 			_pin{pin},
 			_state{defaultState} {};
 
-	void switchOn(void);
-	void switchOff(void);
+	void turnOn(void);
+	void turnOff(void);
 
 	State getState (void);
 

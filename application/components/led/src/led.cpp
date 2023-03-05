@@ -22,12 +22,12 @@
 
 #include "led.h"
 
-void Led::switchOn(void) {
+void Led::turnOn(void) {
 	_pin.set();
 	_state = State::ON;
 }
 
-void Led::switchOff(void) {
+void Led::turnOff(void) {
 	_pin.reset();
 	_state = State::OFF;
 }

@@ -40,9 +40,9 @@ static void NotifyStateChange_CB(void) {
 	_state = OBS_GetDemoState(&OBS_DemoObj);
 
 	if(_state == ON) {
-		LifeLED.switchOn();
+		LifeLED.turnOn();
 		FPM_vCart2Pol(&cartNum, &polNum);
-		LifeLED.switchOff();
+		LifeLED.turnOff();
 		angle = polNum.siAngle;
 		if(angle < 10) {
 			angle ++;
