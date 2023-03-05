@@ -60,9 +60,9 @@ public:
 
     virtual ~IDioPin(void) = default;
 
-    virtual inline void set(void) = 0;
-    virtual inline void reset(void) = 0;
-    virtual PinState_t inline read(void) = 0;
+    virtual void set(void) = 0;
+    virtual void reset(void) = 0;
+    virtual PinState_t read(void) = 0;
 };
 
 class DioPin final : public IDioPin {
@@ -75,15 +75,15 @@ public:
 
     ~DioPin(void) = default;
 
-    void inline set (void) override {
+    void set (void) override {
         _port.BSRR = (0x00000001 << _pin);
     }
 
-    void inline reset (void) override {
+    void reset (void) override {
         _port.BSRR = (0x00010000 << _pin);
     }
 
-    PinState_t inline read (void) override {
+    PinState_t read (void) override {
         if(_port.ODR & (0x00000001 << _pin)) {
             return (PinState_t::SET);
         } else {
